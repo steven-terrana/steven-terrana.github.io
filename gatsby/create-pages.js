@@ -57,7 +57,7 @@ const createPages = async ({ graphql, actions }) => {
       });
     }else if(template == 'post'){
       createPage({
-        path: '/blog' + edge.node.fields.slug,
+        path: '/posts' + edge.node.fields.slug,
         component: path.resolve('./src/templates/post-template.js'),
         context: { slug: edge.node.fields.slug }
       });

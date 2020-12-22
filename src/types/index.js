@@ -33,10 +33,7 @@ export type Node = {
     description?: string,
     category?: string,
     tags?: string[],
-    title: string,
-    socialImage?: {
-      publicURL: string
-    }
+    title: string
   },
   html: string,
   id: string

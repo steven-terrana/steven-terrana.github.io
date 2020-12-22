@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = {
-  url: 'https://steven-terrana.github.io/blog',
-  pathPrefix: '/',
+  url: 'https://steven-terrana.github.io',
+  pathPrefix: '/blog',
   title: 'My Dope Blog',
   subtitle: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
   copyright: '© All rights reserved.',

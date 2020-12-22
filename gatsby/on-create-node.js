@@ -12,7 +12,7 @@ const onCreateNode = ({ node, actions, getNode }) => {
       createNodeField({
         node,
         name: 'slug',
-        value: `/${dirname}/${node.frontmatter.slug}`
+        value: `/${node.frontmatter.slug}`
       });
     } else {
       const value = createFilePath({ node, getNode });

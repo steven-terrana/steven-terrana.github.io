@@ -16,6 +16,14 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-source-git`,
+      options: {
+        name: `obsidian`,
+        remote: siteConfig.obsidian.repo,
+        patterns: [ `**/*.md` ]
+      }
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/static`,
@@ -27,13 +35,6 @@ module.exports = {
       options: {
         path: `${__dirname}/static/media`,
         name: 'media'
-      }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/content`,
-        name: 'pages'
       }
     },
     {
@@ -114,7 +115,7 @@ module.exports = {
             options: {
               maxWidth: 960,
               withWebp: true,
-              ignoreFileExtensions: [],
+            //   ignoreFileExtensions: [],
             }
           },
           {
@@ -132,6 +133,7 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-netlify',
+    'gatsby-remark-source-name',
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
@@ -185,9 +187,9 @@ module.exports = {
         short_name: siteConfig.title,
         start_url: '/',
         background_color: '#FFF',
-        theme_color: '#F7A046',
+        theme_color: '#69bded',
         display: 'standalone',
-        icon: 'static/photo.jpg'
+        icon: 'static/photo.png'
       },
     },
     'gatsby-plugin-offline',

@@ -3,7 +3,7 @@
 module.exports = {
   url: 'https://lumen.netlify.com',
   pathPrefix: '/',
-  title: 'Blog by John Doe',
+  title: 'My Dope Blog',
   subtitle: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
   copyright: '© All rights reserved.',
   disqusShortname: '',
@@ -17,27 +17,31 @@ module.exports = {
     },
     {
       label: 'About me',
-      path: '/pages/about'
+      path: '/pages/about-me'
     },
     {
       label: 'Contact me',
       path: '/pages/contacts'
+    },
+    {
+        label: 'Categories',
+        path: '/categories'
     }
   ],
   author: {
-    name: 'John Doe',
-    photo: '/photo.jpg',
+    name: 'Steven Terrana',
+    photo: '/photo.png',
     bio: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
     contacts: {
-      email: '',
-      facebook: '#',
-      telegram: '#',
-      twitter: '#',
-      github: '#',
+      email: 'steven.terrana@hey.com',
+      facebook: '',
+      telegram: '',
+      twitter: 'steven_terrana',
+      github: 'steven-terrana',
       rss: '',
       vkontakte: '',
-      linkedin: '#',
-      instagram: '#',
+      linkedin: 'sterrana',
+      instagram: '',
       line: '',
       gitlab: '',
       weibo: '',
@@ -46,5 +50,8 @@ module.exports = {
       soundcloud: '',
       medium: '',
     }
+  },
+  obsidian: {
+    repo: `https://steven-terrana:${process.env.GITHUB_TOKEN}@github.com/steven-terrana/obsidian`
   }
 };

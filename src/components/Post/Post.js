@@ -14,6 +14,8 @@ type Props = {
 };
 
 const Post = ({ post }: Props) => {
+  console.log(post)
+  console.log("hi")
   const { html } = post;
   const { tagSlugs, slug } = post.fields;
   const { tags, title, date } = post.frontmatter;

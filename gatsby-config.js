@@ -1,8 +1,11 @@
 'use strict';
 
+require("dotenv").config({
+  path: `.env`
+})
+
 const siteConfig = require('./config.js');
 const postCssPlugins = require('./postcss-config.js');
-require("dotenv").config()
 
 const config = {
   pathPrefix: siteConfig.pathPrefix,
@@ -206,6 +209,7 @@ if(process.env.GATSBY_PREVIEW == "true"){
     }
   })
 } else{
+  console.log("fetching from remote repo: ", siteConfig.obsidian.repo)
   config.plugins.unshift({
     resolve: `gatsby-source-git`,
     options: {

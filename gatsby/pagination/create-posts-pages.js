@@ -6,10 +6,12 @@ const siteConfig = require('../../config.js');
 module.exports = async (graphql, actions) => {
   const { createPage } = actions;
 
+  const previewFilter = process.env.GATSBY_PREVIEW ? '' : ', draft: { ne: true }'
+
   const result = await graphql(`
     {
       allMarkdownRemark(
-        filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }
+        filter: { frontmatter: { template: { eq: "post" } ${previewFilter} } }
       ) { totalCount }
     }
   `);

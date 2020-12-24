@@ -4,7 +4,7 @@ module.exports = {
   url: 'https://steven-terrana.github.io',
   pathPrefix: '/blog',
   title: 'My Dope Blog',
-  subtitle: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+  subtitle: 'Digital Duct Tape Enthusiast. Premature Optimizer.',
   copyright: '© All rights reserved.',
   disqusShortname: '',
   postsPerPage: 4,
@@ -17,7 +17,7 @@ module.exports = {
     },
     {
       label: 'About me',
-      path: '/pages/about-me'
+      path: '/page/about-me'
     },
     {
         label: 'Categories',
@@ -27,7 +27,7 @@ module.exports = {
   author: {
     name: 'Steven Terrana',
     photo: '/photo.png',
-    bio: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+    bio: 'Digital Duct Tape Enthusiast. Premature Optimizer. Open Source. Cat Dad. 🚀',
     contacts: {
       email: 'steven.terrana@hey.com',
       facebook: '',
@@ -48,6 +48,7 @@ module.exports = {
     }
   },
   obsidian: {
-    repo: `https://steven-terrana:${process.env.GITHUB_TOKEN}@github.com/steven-terrana/obsidian`
+    repo: `https://steven-terrana:${process.env.GITHUB_TOKEN}@github.com/steven-terrana/obsidian`,
+    vaultPath: '/Users/steventerrana/Documents/obsidian'
   }
 };

@@ -10,7 +10,7 @@ type Props = {
 
 const Feed = ({ edges }: Props) => (
   <div className={styles['feed']}>
-    {edges.map((edge) => (
+    {edges.map((edge) => (process.env.GATSBY_PREVIEW == "true" || edge.node.frontmatter.draft != "true") ? (
       <div className={styles['feed__item']} key={edge.node.fields.slug}>
         <div className={styles['feed__item-meta']}>
           <time className={styles['feed__item-meta-time']} dateTime={ new Date(edge.node.frontmatter.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}>
@@ -27,7 +27,7 @@ const Feed = ({ edges }: Props) => (
         <p className={styles['feed__item-description']}>{edge.node.frontmatter.description}</p>
         <Link className={styles['feed__item-readmore']} to={edge.node.fields.slug}>Read</Link>
       </div>
-    ))}
+    ) :  null )}
   </div>
 );
 

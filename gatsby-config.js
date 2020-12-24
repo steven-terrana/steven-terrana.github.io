@@ -2,8 +2,9 @@
 
 const siteConfig = require('./config.js');
 const postCssPlugins = require('./postcss-config.js');
+require("dotenv").config()
 
-module.exports = {
+const config = {
   pathPrefix: siteConfig.pathPrefix,
   siteMetadata: {
     url: siteConfig.url,
@@ -15,14 +16,6 @@ module.exports = {
     author: siteConfig.author
   },
   plugins: [
-    {
-      resolve: `gatsby-source-git`,
-      options: {
-        name: `obsidian`,
-        remote: siteConfig.obsidian.repo,
-        patterns: [ `**/*.md` ]
-      }
-    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -103,13 +96,8 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          'gatsby-remark-copy-linked-files',
           'gatsby-remark-relative-images',
-          {
-            resolve: 'gatsby-remark-katex',
-            options: {
-              strict: 'ignore'
-            }
-          },
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -124,8 +112,6 @@ module.exports = {
           },
           'gatsby-remark-autolink-headers',
           'gatsby-remark-prismjs',
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
           'gatsby-remark-external-links'
         ]
       }
@@ -206,5 +192,37 @@ module.exports = {
     },
     'gatsby-plugin-flow',
     'gatsby-plugin-optimize-svgs',
+    'gatsby-transformer-gitinfo',
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
+        queries: require("./src/utils/algolia-queries")
+      },
+    }
   ]
 };
+
+if(process.env.GATSBY_PREVIEW == "true"){
+  console.log(`using local vault path: ${siteConfig.obsidian.vaultPath}`)
+  config.plugins.unshift({
+    resolve: 'gatsby-source-filesystem',
+    options: {
+      path: siteConfig.obsidian.vaultPath,
+      name: 'local_obsidian',
+      ignore: [ "**/.git/**/*", "**/.obsidian/**/*", "**/Templates/**/*" ]
+    }
+  })
+} else{
+  config.plugins.unshift({
+    resolve: `gatsby-source-git`,
+    options: {
+      name: `obsidian`,
+      remote: siteConfig.obsidian.repo,
+      patterns: [ "!**/Templates/**/*", "**/*"]
+    }
+  })
+}
+
+module.exports = config; 

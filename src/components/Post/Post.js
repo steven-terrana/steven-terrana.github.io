@@ -14,8 +14,6 @@ type Props = {
 };
 
 const Post = ({ post }: Props) => {
-  console.log(post)
-  console.log("hi")
   const { html } = post;
   const { tagSlugs, slug } = post.fields;
   const { tags, title, date } = post.frontmatter;
@@ -35,7 +33,7 @@ const Post = ({ post }: Props) => {
       </div>
 
       <div className={styles['post__comments']}>
-        <Comments postSlug={slug} postTitle={post.frontmatter.title} />
+        <Comments/>
       </div>
     </div>
   );

@@ -7,21 +7,20 @@ const onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === 'MarkdownRemark') {
+    let slug = null 
     if (typeof node.frontmatter.slug !== 'undefined') {
       const dirname = getNode(node.parent).relativeDirectory;
-      createNodeField({
-        node,
-        name: 'slug',
-        value: `/posts/${node.frontmatter.slug}`
-      });
+      slug = `/${node.frontmatter.template}/${node.frontmatter.slug}`
     } else {
       const value = createFilePath({ node, getNode });
-      createNodeField({
-        node,
-        name: 'slug',
-        value: `/posts/${value}`
-      });
+      slug = `/${node.frontmatter.template}/${value}`
     }
+
+    createNodeField({
+      node,
+      name: 'slug',
+      value: slug
+    });
 
     if (node.frontmatter.tags) {
       const tagSlugs = node.frontmatter.tags.map((tag) => `/tag/${_.kebabCase(tag)}/`);
@@ -33,6 +32,8 @@ const onCreateNode = ({ node, actions, getNode }) => {
       createNodeField({ node, name: 'categorySlug', value: categorySlug });
     }
   }
+
+
 };
 
 module.exports = onCreateNode;

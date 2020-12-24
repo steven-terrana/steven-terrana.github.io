@@ -17,4 +17,9 @@ jobs:
       - name: Install and Build 🔧
         run: |
           npm ci
+          git config --global user.email "steventerrana@gmail.com"
+          git config --global user.name "Steven Terrana"
           npm run deploy
+        env: 
+          PAT_USER: ${{ secrets.PAT_USER }}
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }} 

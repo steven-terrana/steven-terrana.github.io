@@ -9,12 +9,6 @@ const pageQuery = `{
         fields {
           slug
         }
-        headings {
-          id
-          depth
-          value
-        }
-        excerpt(pruneLength: 50000)
         id
       }
     }
@@ -26,8 +20,6 @@ function pageToAlgoliaRecord({ node: { id, frontmatter, fields, headings, excerp
     objectID: id,
     ...frontmatter,
     ...fields,
-    ...headings,
-    ...excerpt, 
     ...rest,
   }
 }

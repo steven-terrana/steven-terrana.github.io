@@ -1,4 +1,3 @@
-// @flow strict
 import React from 'react';
 import { Link } from 'gatsby';
 import type { Edges } from '../../types';

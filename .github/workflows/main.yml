@@ -5,16 +5,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-deploy-notify:
     runs-on: ubuntu-latest
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Checkout Code 🛎
+        uses: actions/checkout@v2
+        with: 
+          persist-credentials: false
+      # Build the blog
+      - name: Install and Build 🔧
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          npm install
+          npm run deploy

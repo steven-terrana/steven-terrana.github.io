@@ -1,0 +1,20 @@
+name: Build and Notify
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+
+jobs:
+  build-deploy-notify:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout Code 🛎
+        uses: actions/checkout@v2
+        with: 
+          persist-credentials: false
+      # Build the blog
+      - name: Install and Build 🔧
+        run: |
+          npm ci
+          npm run deploy

@@ -48,7 +48,7 @@ module.exports = {
     }
   },
   obsidian: {
-    repo: `https://steven-terrana:${process.env.GITHUB_TOKEN}@github.com/steven-terrana/obsidian`,
+    repo: `https://${process.env.PAT_USER}:${process.env.PAT_TOKEN}@github.com/steven-terrana/obsidian`,
     vaultPath: '/Users/steventerrana/Documents/obsidian'
   }
 };

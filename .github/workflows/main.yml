@@ -17,9 +17,12 @@ jobs:
       - name: Install and Build 🔧
         run: |
           npm ci
-          git config --global user.email "steventerrana@gmail.com"
-          git config --global user.name "Steven Terrana"
-          npm run deploy
+          npm run build
         env: 
           PAT_USER: ${{ secrets.PAT_USER }}
-          PAT_TOKEN: ${{ secrets.PAT_TOKEN }} 
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: public
+          force_orphan: true  

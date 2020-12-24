@@ -191,16 +191,7 @@ const config = {
       }
     },
     'gatsby-plugin-flow',
-    'gatsby-plugin-optimize-svgs',
-    'gatsby-transformer-gitinfo',
-    {
-      resolve: `gatsby-plugin-algolia`,
-      options: {
-        appId: process.env.ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_API_KEY,
-        queries: require("./src/utils/algolia-queries")
-      },
-    }
+    'gatsby-plugin-optimize-svgs'
   ]
 };
 

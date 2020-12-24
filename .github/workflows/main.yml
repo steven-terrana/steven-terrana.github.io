@@ -18,3 +18,6 @@ jobs:
         run: |
           npm ci
           npm run deploy
+        env: 
+          PAT_USER: ${{ secrets.PAT_USER }}
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }} 

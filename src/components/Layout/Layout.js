@@ -17,8 +17,7 @@ const Layout = ({
   description,
 }: Props) => {
   const { author, url } = useSiteMetadata();
-  const metaImage = author.photo;
-  const metaImageUrl = url + metaImage;
+  const metaImageUrl = url + "/blog/media/card.jpg";
 
   return (
     <div className={styles.layout}>
@@ -31,7 +30,7 @@ const Layout = ({
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content='/media/card.jpeg' />
+        <meta name="twitter:image" content={metaImageUrl} />
       </Helmet>
       {children}
     </div>

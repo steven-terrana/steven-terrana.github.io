@@ -34,7 +34,7 @@ module.exports = {
       telegram: '',
       twitter: 'steven_terrana',
       github: 'steven-terrana',
-      rss: '',
+      rss: 'rss.xml',
       vkontakte: '',
       linkedin: 'sterrana',
       instagram: '',

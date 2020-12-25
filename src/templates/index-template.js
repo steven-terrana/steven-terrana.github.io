@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql } from 'gatsby';
+import Fuse from 'fuse.js'
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import Feed from '../components/Feed';
 import Page from '../components/Page';
 import Pagination from '../components/Pagination';
+import Filter from '../components/Filter'
 import { useSiteMetadata } from '../hooks';
 import type { PageContext, AllMarkdownRemark } from '../types';
 
@@ -13,13 +15,10 @@ type Props = {
   pageContext: PageContext
 };
 
-const search = (event, edges) => {
-  let keyword = event.target.value
-  console.log("keyword: ", keyword)
-  console.log("edges: ", edges)
-};
-
 const IndexTemplate = ({ data, pageContext }: Props) => {
+
+  const [keyword, setKeyword] = useState('');
+
   const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
 
   const {
@@ -30,23 +29,40 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
     nextPagePath
   } = pageContext;
 
-  const { edges } = data.page;
+  let edges = [] 
+  if(keyword == ''){ // search empty, use default page posts
+    edges = data.page.edges
+  } else { 
+    let fuse = new Fuse(data.posts.edges, {
+      includeScore: true,
+      ignoreLocation: true,
+      includeMatches: true,
+      threshold: 0.4,
+      keys: [ 'node.frontmatter.title', 'node.frontmatter.description' ]
+    })
+    let result = fuse.search(keyword)
+    result.map( (result) => edges.push(result.item) )
+    console.log(edges)
+  }
+
   const pageTitle = currentPage > 0 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle;
+  
+  let numPosts = edges.length
 
   return (
     <Layout title={pageTitle} description={siteSubtitle}>
       <Sidebar isIndex />
       <Page>
-        <div>
-          <input type="text" placeholder="type to filter posts.." onChange={(e) => search(e, data.posts.edges)} />
-        </div>
-        <Feed edges={edges} />
-        <Pagination
+        <Filter setKeyword={setKeyword}/>
+        { (edges.length > 0) ? <Feed edges={edges} /> :
+          <h1>Nothing to see here 😞</h1> 
+        }
+        { (keyword == '') ? <Pagination
           prevPagePath={prevPagePath}
           nextPagePath={nextPagePath}
           hasPrevPage={hasPrevPage}
           hasNextPage={hasNextPage}
-        />
+        /> : null }
       </Page>
     </Layout>
   );

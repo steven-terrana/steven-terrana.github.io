@@ -1,0 +1,14 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+.feed_filter{
+  border: 0rem;
+  height: 2rem;
+  margin-bottom: 1rem;
+
+  &_input {
+    outline: none;
+    border: none;
+    width: 100%;  
+  }
+}

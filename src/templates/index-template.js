@@ -1,4 +1,3 @@
-// @flow strict
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
@@ -14,6 +13,12 @@ type Props = {
   pageContext: PageContext
 };
 
+const search = (event, edges) => {
+  let keyword = event.target.value
+  console.log("keyword: ", keyword)
+  console.log("edges: ", edges)
+};
+
 const IndexTemplate = ({ data, pageContext }: Props) => {
   const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
 
@@ -25,13 +30,16 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
     nextPagePath
   } = pageContext;
 
-  const { edges } = data.allMarkdownRemark;
+  const { edges } = data.page;
   const pageTitle = currentPage > 0 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle;
 
   return (
     <Layout title={pageTitle} description={siteSubtitle}>
       <Sidebar isIndex />
       <Page>
+        <div>
+          <input type="text" placeholder="type to filter posts.." onChange={(e) => search(e, data.posts.edges)} />
+        </div>
         <Feed edges={edges} />
         <Pagination
           prevPagePath={prevPagePath}
@@ -46,16 +54,25 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
 
 export const query = graphql`
   query IndexTemplate($postsLimit: Int!, $postsOffset: Int!) {
-    allMarkdownRemark(
-        limit: $postsLimit,
-        skip: $postsOffset,
-        filter: { 
-          frontmatter: { 
-            template: { eq: "post" }
+    page: allMarkdownRemark(limit: $postsLimit, skip: $postsOffset, filter: {frontmatter: {template: {eq: "post"}}}, sort: {order: DESC, fields: [frontmatter___date]}) {
+      edges {
+        node {
+          fields {
+            slug
+            categorySlug
           }
-        },
-        sort: { order: DESC, fields: [frontmatter___date] }
-      ){
+          frontmatter {
+            title
+            date
+            category
+            description
+            draft
+          }
+        }
+      }
+    }
+    
+    posts: allMarkdownRemark(filter: {frontmatter: {template: {eq: "post"}}}, sort: {order: DESC, fields: [frontmatter___date]}){
       edges {
         node {
           fields {

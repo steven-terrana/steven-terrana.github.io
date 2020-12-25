@@ -3,8 +3,8 @@
 module.exports = {
   url: 'https://steven-terrana.github.io',
   pathPrefix: '/blog',
-  title: 'My Dope Blog',
-  subtitle: 'Digital Duct Tape Enthusiast. Premature Optimizer.',
+  title: "Steven Terrana's Blog",
+  subtitle: '',
   copyright: '© All rights reserved.',
   disqusShortname: '',
   postsPerPage: 4,
@@ -16,8 +16,8 @@ module.exports = {
       path: '/'
     },
     {
-      label: 'About me',
-      path: '/page/about-me'
+      label: 'Publications',
+      path: '/page/publications'
     },
     {
         label: 'Categories',

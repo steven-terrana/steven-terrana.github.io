@@ -60,8 +60,8 @@ const config = {
               ...edge.node.frontmatter,
               description: edge.node.frontmatter.description,
               date: edge.node.frontmatter.date,
-              url: site.siteMetadata.site_url + edge.node.fields.slug,
-              guid: site.siteMetadata.site_url + edge.node.fields.slug,
+              url: site.siteMetadata.site_url + siteConfig.pathPrefix + edge.node.fields.slug,
+              guid: site.siteMetadata.site_url + siteConfig.pathPrefix + edge.node.fields.slug,
               custom_elements: [{ 'content:encoded': edge.node.html }]
             }))
           ),
@@ -163,7 +163,7 @@ const config = {
         `,
         output: '/sitemap.xml',
         serialize: ({ site, allSitePage }) => allSitePage.edges.map((edge) => ({
-          url: site.siteMetadata.siteUrl + edge.node.path,
+          url: site.siteMetadata.siteUrl + siteConfig.pathPrefix + edge.node.path,
           changefreq: 'daily',
           priority: 0.7
         }))

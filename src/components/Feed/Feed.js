@@ -11,7 +11,7 @@ type Props = {
 const Feed = ({ edges }: Props) => {
   let items = []
   edges.map( (edge) => {
-    if(process.env.GATSBY_PREVIEW == "true" || edge.node.frontmatter.draft != "true"){
+    if(process.env.GATSBY_PREVIEW == "true" || edge.node.frontmatter.draft !== true){
       items.push(edge)
     }
   })

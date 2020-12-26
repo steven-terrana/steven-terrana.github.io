@@ -2,7 +2,7 @@
 
 module.exports = {
   url: 'https://steven-terrana.github.io',
-  pathPrefix: '/blog',
+  pathPrefix: '',
   title: "Steven Terrana's Blog",
   subtitle: '',
   copyright: '© All rights reserved.',

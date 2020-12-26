@@ -18,6 +18,7 @@ jobs:
         run: |
           npm ci
           npm run build
+          echo "buzzword.engineering" > public/CNAME
         env: 
           PAT_USER: ${{ secrets.PAT_USER }}
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}

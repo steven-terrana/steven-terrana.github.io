@@ -6,7 +6,7 @@ class Comments extends Component{
     script.setAttribute("src", "https://utteranc.es/client.js");
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async", true);
-    script.setAttribute("repo", "steven-terrana/blog");
+    script.setAttribute("repo", "steven-terrana/steven-terrana.github.io");
     script.setAttribute("issue-term", "title");
     script.setAttribute( "theme", "github-light");
     const commentsBox = document.querySelector(".commentsBox")

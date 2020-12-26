@@ -17,7 +17,7 @@ const Layout = ({
   description,
 }: Props) => {
   const { author, url } = useSiteMetadata();
-  const metaImageUrl = url + "/blog/media/card.jpg";
+  const metaImageUrl = url + "/media/card.jpg";
 
   return (
     <div className={styles.layout}>

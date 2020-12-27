@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = {
-  url: 'https://steven-terrana.github.io',
+  url: 'https://buzzword.engineering',
   pathPrefix: '',
-  title: "Steven Terrana's Blog",
+  title: "Buzzword Engineering",
   subtitle: '',
   copyright: '© All rights reserved.',
   disqusShortname: '',

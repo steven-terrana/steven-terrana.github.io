@@ -115,7 +115,8 @@ const config = {
           },
           'gatsby-remark-autolink-headers',
           'gatsby-remark-prismjs',
-          'gatsby-remark-external-links'
+          'gatsby-remark-external-links',
+          'gatsby-remark-admonitions'
         ]
       }
     },

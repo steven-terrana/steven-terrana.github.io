@@ -1,4 +1,4 @@
-name: Build and Notify
+name: Build and Publish
 
 on:
   repository_dispatch:

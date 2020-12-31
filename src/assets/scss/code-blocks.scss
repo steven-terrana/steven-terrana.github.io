@@ -1,0 +1,50 @@
+.gatsby-highlight {
+    border-radius: 0.5rem;
+    background-color: #f5f2f0; 
+    box-shadow: 0.3rem 0.3rem 0.15rem  #aeaeae;
+    border: 1px solid #999999;
+}
+
+pre {
+    margin-top: 0 !important; 
+    padding-top: 0 !important; 
+    margin-bottom: 0.2rem !important; 
+    border-radius: 0 !important;
+    padding: 0.5em !important; 
+    line-height: 1em !important;
+}
+
+code {
+    font-size: 11pt !important; 
+    font-family: Fira Code !important;
+    line-height: 0 !important;
+}
+
+.dot-holder {
+    margin-left: 0.3rem !important; 
+}
+
+.dot {
+    height: 0.6rem !important; 
+    width: 0.6rem !important; 
+    margin: 0.1rem 0.25rem !important;
+    // margin-left: 0.09rem !important; 
+    // margin-right: 0.09rem !important; 
+    border-radius: 50% !important; 
+    display: inline-block;
+}
+
+.red{ 
+    background-color: #FF5F58;
+    border: 1px solid #DB6E65; 
+}
+
+.yellow{ 
+    background-color: #F4C452;
+    border: 1px solid #D6A548;
+}
+
+.green{ 
+    background-color: #64CA57;
+    border: 1px solid #52AB3E; 
+}

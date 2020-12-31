@@ -38,6 +38,7 @@
     "disqus"
   ],
   "dependencies": {
+    "@fontsource/fira-code": "^4.1.0",
     "bluebird": "^3.7.2",
     "classnames": "^2.2.6",
     "codecov": "^3.8.0",

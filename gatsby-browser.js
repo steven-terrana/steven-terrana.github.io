@@ -19,8 +19,6 @@ exports.onRouteUpdate = ({ location, prevLocation }) => {
 
     let codeBlocks = document.querySelectorAll("div.gatsby-highlight")
     codeBlocks.forEach(block => {
-        console.log(block)
         block.insertBefore(dotHolder.cloneNode(true), block.firstChild)
-        console.log(block)
     })
 }

@@ -70,7 +70,7 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
 
 export const query = graphql`
   query IndexTemplate($postsLimit: Int!, $postsOffset: Int!) {
-    page: allMarkdownRemark(limit: $postsLimit, skip: $postsOffset, filter: {frontmatter: {template: {eq: "post"}}}, sort: {order: DESC, fields: [frontmatter___date]}) {
+    page: allMarkdownRemark(limit: $postsLimit, skip: $postsOffset, filter: {frontmatter: {template: {eq: "post"}}}, sort: {order: ASC, fields: [frontmatter___date]}) {
       edges {
         node {
           fields {
@@ -88,7 +88,7 @@ export const query = graphql`
       }
     }
     
-    posts: allMarkdownRemark(filter: {frontmatter: {template: {eq: "post"}}}, sort: {order: DESC, fields: [frontmatter___date]}){
+    posts: allMarkdownRemark(filter: {frontmatter: {template: {eq: "post"}}}, sort: {order: ASC, fields: [frontmatter___date]}){
       edges {
         node {
           fields {

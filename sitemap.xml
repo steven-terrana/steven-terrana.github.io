@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://buzzword.engineering/tags</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://buzzword.engineering/categories</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://buzzword.engineering/page/publications</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://buzzword.engineering/post/blog-tech-stack</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://buzzword.engineering/post/dag-alternative-to-ordinals-jte</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://buzzword.engineering/tag/groovy</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://buzzword.engineering/tag/jenkins</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://buzzword.engineering/tag/software-engineering</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://buzzword.engineering/category/jenkins-templating-engine</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://buzzword.engineering/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+</urlset>
